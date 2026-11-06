@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>استاد سید مولوی</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: linear-gradient(135deg, #088be2 0%, #118cc5 50%, #0a7ce7 100%);
+      color: #f1f5f9;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(158, 110, 22, 0.95);
+      z-index: 50;
+      border-bottom: 1px solid rgba(207, 144, 26, 0.3);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #178ceb 0%, #e4cd00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #f1f5f9;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fbbf24;
+    }
+
+    main {
+      margin-top: 80px;
+    }
+
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      text-align: center;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .gradient {
+      background: linear-gradient(135deg, #af2310 0%, #0f98ce 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0c6bb8 0%, #db4205 100%);
+      color: #1e293b;
+      box-shadow: 0 0 30px rgba(36, 251, 240, 0.3);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 50px rgba(21, 196, 181, 0.5);
+    }
+
+    .btn-secondary {
+      border: 2px solid #dbdbdb;
+      color: #24fbcc;
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(251, 191, 36, 0.1);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: rgba(17, 192, 204, 0.5);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(71, 85, 105, 0.3);
+      transition: all 0.3s;
+    }
+
+    .service-card:hover {
+      border-color: #1195c9;
+      box-shadow: 0 0 30px rgba(2, 146, 151, 0.1);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #2697cc 0%, #0e3ca0 100%);
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .portfolio-image {
+      height: 250px;
+      background: linear-gradient(135deg, rgba(71, 85, 105, 0.5), rgba(51, 65, 85, 0.5));
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s;
+    }
+
+    .portfolio-item:hover .portfolio-image {
+      transform: translateY(-5px);
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1));
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .blog-card {
+      background: rgba(30, 41, 59, 0.5);
+      border-radius: 1rem;
+      border: 1px solid rgba(71, 85, 105, 0.3);
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .blog-card:hover {
+      border-color: #fbbf24;
+    }
+
+    .blog-image {
+      height: 200px;
+      background: linear-gradient(135deg, rgba(71, 85, 105, 0.5), rgba(51, 65, 85, 0.5));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .blog-content {
+      padding: 1.5rem;
+    }
+
+    .blog-link {
+      color: #fbbf24;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .contact-card {
+      background: rgba(30, 41, 59, 0.8);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(71, 85, 105, 0.3);
+    }
+
+    .contact-card p:last-child {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #fbbf24;
+    }
+
+    .section-dark {
+      background: rgba(30, 41, 59, 0.3);
+    }
+
+    footer {
+      background: #0f172a;
+      border-top: 1px solid rgba(71, 85, 105, 0.3);
+      padding: 2rem;
+      text-align: center;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      nav {
+        display: none;
+      }
+
+      section {
+        padding: 3rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo">استاد سید مولوی</div>
+    <nav>
+      <a href="#home">خانه</a>
+      <a href="#about">درباره</a>
+      <a href="#services">خدمات</a>
+      <a href="#portfolio">کارها</a>
+      <a href="#blog">وبلاگ</a>
+      <a href="#contact">تماس</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>خوش‌آمدید به وبسایت<br><span class="gradient">استاد سید مولوی</span></h1>
+    <p>تخصص، تجربه و تعهد به کیفیت در هر پروژه</p>
+    <div class="buttons">
+      <button class="btn btn-primary">شروع کنیم</button>
+      <button class="btn btn-secondary">بیشتر بدانید</button>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section-dark">
+    <h2>خدمات و تخصص‌ها</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <h3>مشاوره</h3>
+        <p>راهنمایی و مشاوره تخصصی</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <h3>آموزش</h3>
+        <p>برنامه‌های آموزشی جامع</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <h3>پروژه‌ها</h3>
+        <p>اجرای پروژه‌های با کیفیت</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section>
+    <h2>نمونه کارها</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="portfolio-image">📊</div>
+        <h3>پروژه اول</h3>
+        <p>توضیح کوتاه درباره این پروژه</p>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-image">🎯</div>
+        <h3>پروژه دوم</h3>
+        <p>توضیح کوتاه درباره این پروژه</p>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-image">💡</div>
+        <h3>پروژه سوم</h3>
+        <p>توضیح کوتاه درباره این پروژه</p>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-image">🚀</div>
+        <h3>پروژه چهارم</h3>
+        <p>توضیح کوتاه درباره این پروژه</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section class="section-dark">
+    <h2>آخرین مقالات</h2>
+    <div class="blog-grid">
+      <article class="blog-card">
+        <div class="blog-image">📝</div>
+        <div class="blog-content">
+          <h3>مقاله اول</h3>
+          <p>خلاصه‌ی مقاله و موضوع</p>
+          <a href="#" class="blog-link">ادامه مطلب →</a>
+        </div>
+      </article>
+      <article class="blog-card">
+        <div class="blog-image">📚</div>
+        <div class="blog-content">
+          <h3>مقاله دوم</h3>
+          <p>خلاصه‌ی مقاله و موضوع</p>
+          <a href="#" class="blog-link">ادامه مطلب →</a>
+        </div>
+      </article>
+      <article class="blog-card">
+        <div class="blog-image">✍️</div>
+        <div class="blog-content">
+          <h3>مقاله سوم</h3>
+          <p>خلاصه‌ی مقاله و موضوع</p>
+          <a href="#" class="blog-link">ادامه مطلب →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section>
+    <h2>تماس با من</h2>
+    <p style="color: #cbd5e1; text-align: center;">برای کسب اطلاعات بیشتر</p>
+    <div class="contact-info">
+      <div class="contact-card">
+        <p>ایمیل</p>
+        <p>amihoseinking901@example.com</p>
+      </div>
+      <div class="contact-card">
+        <p>تلفن</p>
+        <p>0935.742.6980 </p>
+      </div>
+    </div>
+    <div style="text-align: center;">
+      <button class="btn btn-primary">ارسال پیام</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© ۱۴۰۳ استاد سید مولوی. تمام حقوق محفوظ است.</p>
+</footer>
+
+</body>
+</html>
